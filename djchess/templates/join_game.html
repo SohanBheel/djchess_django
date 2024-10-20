@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Join A Game{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Join A Game</h2>
+    <div class="card shadow">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="game_id">Game ID:</label>
+                    <input type="text" class="form-control" id="game_id" name="game_id" placeholder="Enter your Game ID" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mt-3">Start Game</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a> <!-- Assuming you have an index URL -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

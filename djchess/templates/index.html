@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Chess Game - Home{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1>Welcome to the Chess Game</h1>
+    <p>Challenge your friends or play against the computer!</p>
+
+    {% if user.is_authenticated %}
+        <h3>Hello, {{ user.username }}!</h3>
+        <a href="{% url 'create_game' %}" class="btn btn-primary">Create New Game</a>
+        <a href="{% url 'join_game' %}" class="btn btn-primary">Join A Game</a>
+        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-secondary">Sign Up</a>
+    {% endif %}
+</div>
+
+{% endblock %}
